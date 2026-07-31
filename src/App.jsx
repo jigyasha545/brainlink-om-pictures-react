@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Loader from "./components/Loader";
+import CursorGlow from "./components/CursorGlow";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <CursorGlow />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

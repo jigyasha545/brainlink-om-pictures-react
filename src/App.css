@@ -961,3 +961,21 @@ button {
 .nav-links a:hover::after {
   width: 100%;
 }
+
+/* ===== Premium Cursor Glow ===== */
+
+.cursor-glow {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle,
+      rgba(212, 175, 55, 0.22) 0%,
+      rgba(212, 175, 55, 0.08) 45%,
+      transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: left 0.08s linear, top 0.08s linear;
+  filter: blur(12px);
+}
