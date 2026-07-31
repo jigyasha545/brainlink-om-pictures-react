@@ -920,3 +920,44 @@ button {
     transform: scale(1.05);
   }
 }
+
+
+/* ===== Premium Navbar Scroll Effect ===== */
+
+.navbar {
+  transition: all 0.35s ease;
+}
+
+.navbar-scrolled {
+  padding: 12px 80px;
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.18);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.navbar h2 {
+  transition: all 0.35s ease;
+}
+
+.navbar-scrolled h2 {
+  font-size: 30px;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.35s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
