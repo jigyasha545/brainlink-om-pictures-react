@@ -102,22 +102,61 @@ button {
   padding: 0 20px;
 }
 
-.hero-content {
-  max-width: 900px;
-  margin: auto;
+/* ================= HERO SECTION ================= */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: heroZoom 12s ease-in-out infinite alternate;
+
+  padding: 0 20px;
 }
 
-.hero h1 {
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-title {
   font-size: 64px;
   font-weight: 800;
-  line-height: 1.2;
   color: #fff;
+  line-height: 1.2;
   margin-bottom: 20px;
+  animation: slideUp 1s ease;
 }
 
-.hero p {
+.hero-title span {
+  color: #d4af37;
+}
+
+.hero-subtitle {
   font-size: 22px;
-  color: #f1f1f1;
+  color: #eee;
+  margin-bottom: 40px;
+  animation: fadeUp 1.5s ease;
 }
 
 .hero-buttons {
@@ -125,6 +164,53 @@ button {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  animation: fadeUp 2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    background-size: 100%;
+  }
+
+  to {
+    background-size: 110%;
+  }
+}
+
+@media (max-width:768px) {
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
 }
 
 .primary-btn {
@@ -962,20 +1048,18 @@ button {
   width: 100%;
 }
 
-/* ===== Premium Cursor Glow ===== */
-
 .cursor-glow {
   position: fixed;
-  width: 220px;
-  height: 220px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle,
-      rgba(212, 175, 55, 0.22) 0%,
-      rgba(212, 175, 55, 0.08) 45%,
+      rgba(212, 175, 55, 0.25) 0%,
+      rgba(212, 175, 55, 0.10) 40%,
       transparent 75%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 1;
-  transition: left 0.08s linear, top 0.08s linear;
-  filter: blur(12px);
+  z-index: 999999;
+  filter: blur(30px);
+  transition: left 0.05s linear, top 0.05s linear;
 }
