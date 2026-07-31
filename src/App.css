@@ -102,116 +102,7 @@ button {
   padding: 0 20px;
 }
 
-/* ================= HERO SECTION ================= */
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-    url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=80");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: relative;
-  overflow: hidden;
-
-  animation: heroZoom 12s ease-in-out infinite alternate;
-
-  padding: 0 20px;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-}
-
-.hero-title {
-  font-size: 64px;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  animation: slideUp 1s ease;
-}
-
-.hero-title span {
-  color: #d4af37;
-}
-
-.hero-subtitle {
-  font-size: 22px;
-  color: #eee;
-  margin-bottom: 40px;
-  animation: fadeUp 1.5s ease;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  animation: fadeUp 2s ease;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroZoom {
-  from {
-    background-size: 100%;
-  }
-
-  to {
-    background-size: 110%;
-  }
-}
-
-@media (max-width:768px) {
-
-  .hero-title {
-    font-size: 42px;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-  }
-
-}
 
 .primary-btn {
   background: #d4af37;
@@ -1232,4 +1123,150 @@ button {
 
 .portfolio-item:hover {
   box-shadow: 0 0 35px rgba(212, 175, 55, .35);
+}
+
+/* ===== Cinematic Hero Video ===== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Premium Counter Section ===== */
+
+.counter-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 80px 8%;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+
+.counter-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 35px 20px;
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+.counter-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.35);
+  border-color: #d4af37;
+}
+
+.counter-box h2 {
+  font-size: 48px;
+  color: #d4af37;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.counter-box p {
+  color: #ddd;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .counter-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .counter-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Auto Portfolio Slider ===== */
+
+.portfolio-slider {
+  padding: 90px 0;
+  background: #0f0f0f;
+  overflow: hidden;
+  text-align: center;
+}
+
+.portfolio-slider h2 {
+  font-size: 46px;
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.portfolio-slider p {
+  color: #ccc;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: slidePortfolio 25s linear infinite;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+.slider-track img {
+  width: 420px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: .4s;
+  border: 2px solid transparent;
+}
+
+.slider-track img:hover {
+  transform: scale(1.05);
+  border-color: #d4af37;
+  box-shadow: 0 15px 40px rgba(212, 175, 55, .35);
+}
+
+@keyframes slidePortfolio {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media(max-width:768px) {
+
+  .slider-track img {
+    width: 300px;
+    height: 200px;
+  }
+
 }

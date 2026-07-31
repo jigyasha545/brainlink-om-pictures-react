@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import CounterSection from "../components/CounterSection";
+import PortfolioSlider from "../components/PortfolioSlider";
 import ServicesSection from "../components/ServicesSection";
 import WhyChooseUs from "../components/WhyChooseUs";
 import PortfolioPreview from "../components/PortfolioPreview";
@@ -12,6 +14,8 @@ function Home() {
         <>
             <Navbar />
             <Hero />
+            <CounterSection />
+            <PortfolioSlider />
             <ServicesSection />
             <WhyChooseUs />
             <PortfolioPreview />
